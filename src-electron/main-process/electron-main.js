@@ -1,4 +1,6 @@
 import { app, BrowserWindow, nativeTheme, webPreferences } from 'electron'
+var path = require('path')
+
 
 try {
   if (process.platform === 'win32' && nativeTheme.shouldUseDarkColors === true) {
@@ -20,10 +22,12 @@ function createWindow() {
   /**
    * Initial window options
    */
+
   mainWindow = new BrowserWindow({
     width: 1000,
     height: 600,
     useContentSize: true,
+    icon: require('path').join(__dirname, 'statics', 'logo.png').replace(/\\/g, '\\\\'),
     webPreferences: {
       // Change from /quasar.conf.js > electron > nodeIntegration;
       // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration
@@ -35,7 +39,7 @@ function createWindow() {
     }
 
   })
-  
+
 
   mainWindow.loadURL(process.env.APP_URL)
 

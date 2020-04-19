@@ -193,7 +193,10 @@ module.exports = function (/* ctx */) {
       builder: {
         // https://www.electron.build/configuration/configuration
 
-        appId: 'apps'
+        appId: 'apps',
+        win: {
+          icon: 'src-electron/icons/icon.ico' // your icon file here
+        }
       },
 
       // More info: https://quasar.dev/quasar-cli/developing-electron-apps/node-integration
